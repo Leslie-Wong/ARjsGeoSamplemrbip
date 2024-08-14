@@ -44,12 +44,12 @@
 <script>
     const entity = document.createElement(".info");
 
-    setInterval(function({
+    setInterval(function(){
         navigator.geolocation.getCurrentPosition((position) => {
             let lat = position.coords.latitude;
             let long = position.coords.longitude;
         
             entity.innerText = "latitude: " + lat + "  longitude: " + long;
           });
-    }), 5000);
+    }, 5000);
 </script>
