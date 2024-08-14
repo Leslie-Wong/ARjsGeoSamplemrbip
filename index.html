@@ -33,6 +33,7 @@
             </a-assets>
 
                 <a-entity
+                    class="obj-1"
                     look-at="[gps-camera]"
                     animation-mixer="loop: repeat"
                     gltf-model="#animated-asset"
@@ -45,13 +46,19 @@
     </body>
     <script>
         const entity = document.querySelector(".info");
-    
+        var isSet = false;
         window.setInterval(function(){
             navigator.geolocation.getCurrentPosition((position) => {
                 let lat = position.coords.latitude;
                 let long = position.coords.longitude;
             
                 entity.innerText = "latitude: " + lat + "  longitude: " + long;
+                if(!isSet){
+                    var obj1 = document.querySelector('.obj-1');
+                    obj1.setAttribute('gps-new-entity-place', {
+                        latitude: lat + 0.001,
+                        longitude: long + 0.001,
+                    });
               });
         }, 5000);
     </script>
