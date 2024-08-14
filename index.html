@@ -40,16 +40,17 @@
             <a-camera gps-camera rotation-reader></a-camera>
         </a-scene>
     </body>
+    <script>
+        const entity = document.createElement(".info");
+    
+        setInterval(function(){
+            navigator.geolocation.getCurrentPosition((position) => {
+                let lat = position.coords.latitude;
+                let long = position.coords.longitude;
+            
+                entity.innerText = "latitude: " + lat + "  longitude: " + long;
+              });
+        }, 5000);
+    </script>
 </html>
-<script>
-    const entity = document.createElement(".info");
 
-    setInterval(function(){
-        navigator.geolocation.getCurrentPosition((position) => {
-            let lat = position.coords.latitude;
-            let long = position.coords.longitude;
-        
-            entity.innerText = "latitude: " + lat + "  longitude: " + long;
-          });
-    }, 5000);
-</script>
