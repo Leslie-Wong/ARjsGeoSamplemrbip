@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+        <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
         <script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>
         <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
         <script src="https://raw.githack.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
@@ -16,7 +16,7 @@
             top: 10px;
             left: 10px;
         }
-        ">test11</div>
+        ">test12</div>
         <a-scene
             renderer="logarithmicDepthBuffer: true;"
             embedded
@@ -41,6 +41,8 @@
                 ></a-entity>
 
                 <a-entity
+                    class="obj-2"
+                    click-log
                     look-at="[gps-camera]"
                     animation-mixer="loop: repeat"
                     gltf-model="#animated-asset"
@@ -48,6 +50,8 @@
                     gps-entity-place="latitude: 22.313423; longitude: 114.218932;"
                 ></a-entity>
                 <a-entity
+                    class="obj-2"
+                    click-log
                     look-at="[gps-camera]"
                     animation-mixer="loop: repeat"
                     gltf-model="#animated-asset"
@@ -55,6 +59,8 @@
                     gps-entity-place="latitude: 22.313284; longitude: 114.218953;"
                 ></a-entity>
                 <a-entity
+                    class="obj-2"
+                    click-log
                     look-at="[gps-camera]"
                     animation-mixer="loop: repeat"
                     gltf-model="#animated-asset"
@@ -62,6 +68,8 @@
                     gps-entity-place="latitude: 22.3134776610991; longitude: 114.21909430995585;"
                 ></a-entity>
                 <a-entity
+                    class="obj-2"
+                    click-log
                     look-at="[gps-camera]"
                     animation-mixer="loop: repeat"
                     gltf-model="#animated-asset"
@@ -69,6 +77,8 @@
                     gps-entity-place="latitude: 22.31337013523229; longitude: 114.21922305598856;"
                 ></a-entity>
                 <a-entity
+                    class="obj-2"
+                    click-log
                     look-at="[gps-camera]"
                     animation-mixer="loop: repeat"
                     gltf-model="#animated-asset"
@@ -76,6 +86,8 @@
                     gps-entity-place="latitude: 22.313203056309714; longitude: 114.21905675902964;"
                 ></a-entity>
                 <a-entity
+                    class="obj-2"
+                    click-log
                     look-at="[gps-camera]"
                     animation-mixer="loop: repeat"
                     gltf-model="#animated-asset"
@@ -83,6 +95,8 @@
                     gps-entity-place="latitude: 22.313308928084204; longitude: 114.21922305598856;"
                 ></a-entity>
                 <a-entity
+                    class="obj-2"
+                    click-log
                     look-at="[gps-camera]"
                     animation-mixer="loop: repeat"
                     gltf-model="#animated-asset"
@@ -90,6 +104,8 @@
                     gps-entity-place="latitude: 22.31325599224485; longitude: 114.2191962338984;"
                 ></a-entity>
                 <a-entity
+                    class="obj-2"
+                    click-log
                     look-at="[gps-camera]"
                     animation-mixer="loop: repeat"
                     gltf-model="#animated-asset"
@@ -97,6 +113,8 @@
                     gps-entity-place="latitude: 22.313203056309714; longitude: 114.2192123271525;"
                 ></a-entity>
                 <a-entity
+                    class="obj-2"
+                    click-log
                     look-at="[gps-camera]"
                     animation-mixer="loop: repeat"
                     gltf-model="#animated-asset"
@@ -104,6 +122,8 @@
                     gps-entity-place="latitude: 22.313452847433233; longitude: 114.21876708045603;"
                 ></a-entity>
                 <a-entity
+                    class="obj-2"
+                    click-log
                     look-at="[gps-camera]"
                     animation-mixer="loop: repeat"
                     gltf-model="#animated-asset"
@@ -119,6 +139,7 @@
         init: function() {
           this.myFunction = function(e) {
             console.log(e,"hi");
+            e.target.remove();
           };
 
           this.el.addEventListener("click", this.myFunction);
@@ -131,6 +152,7 @@
         
         const entity = document.querySelector(".info");
         const obj1 = document.querySelector('.obj-1');
+        const obj2 = document.querySelector('.obj-2');
         obj1.addEventListener("click",e => {
             e.target
         });
@@ -144,6 +166,11 @@
                 if(!isSet){
                     
                     obj1.setAttribute('gps-entity-place', {
+                        latitude: lat + 0.0001,
+                        longitude: long + 0.0001,
+                    });
+
+                    obj2.setAttribute('gps-entity-place', {
                         latitude: lat + 0.0001,
                         longitude: long + 0.0001,
                     });
