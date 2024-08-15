@@ -16,7 +16,7 @@
             top: 10px;
             left: 10px;
         }
-        ">test19</div>
+        ">test20</div>
         <a-scene
             renderer="logarithmicDepthBuffer: true;"
             embedded
@@ -140,7 +140,9 @@
         init: function() {
           this.myFunction = function(e) {
             console.log(e,"hi");
-            e.target.remove();
+              if(e.target.className == "obj-1"){
+                  e.target.remove();
+              }
           };
 
           this.el.addEventListener("click", this.myFunction);
