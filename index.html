@@ -18,7 +18,7 @@
             bottom: 10px;
             right: 10px;
         }
-        ">test8</div>
+        ">test9</div>
         <a-scene
             renderer="logarithmicDepthBuffer: true;"
             embedded
@@ -126,11 +126,13 @@
                 entity.innerText = "latitude: " + lat + "  longitude: " + long;
                 if(!isSet){
                     var obj1 = document.querySelector('.obj-1');
-                    obj1.setAttribute('gps-new-entity-place', {
-                        latitude: lat + 0.001,
-                        longitude: long + 0.001,
+                    obj1.setAttribute('gps-entity-place', {
+                        latitude: lat + 0.0001,
+                        longitude: long + 0.0001,
                     });
-                    isSet = true;
+                    // isSet = true;
+                    entity.innerText = "<br>latitude: " + lat + "<br>longitude: " + long +
+                        "<br>obj latitude: " + obj1.getAttribute('gps-entity-place').latitude + "<br>obj longitude: " + obj1.getAttribute('gps-entity-place').longitude;
                 }
               });
         }, 5000);
